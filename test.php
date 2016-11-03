@@ -96,4 +96,12 @@
 
     
     
+                 $db = "UPDATE `t_groupe` SET gro_temp_key = 0 WHERE gro_name = :gro_name";
+                        $query = $this->getDb()->prepare($db);
+                        $query = $this->getDb()->execute(array('groupname' => $data['groupname']));
+
+
+
+
+    
          ?>
