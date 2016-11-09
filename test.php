@@ -29,15 +29,50 @@
         }    
 
 
-    $reponse = $bdd->query('SELECT * FROM t_groupe WHERE gro_id = 1' );
+
+     /*function find($id) {
+        if ($id == null){
+             throw new \Exception("id null ");
+        } else {
+
+        $db = "SELECT * FROM t_user WHERE usr_id= $id";
+        $row = $this->getDb()->fetchAll($db, array($id));
+        $query = $this->getDb()->prepare($db);
+        $query -> execute($db , array(
+          $id = $row['usr_id'];
+          ));
+            
+
+        if ($row) {
+            /*return $this->buildDomainObject($row);
+              return       
+                    print_r($row) ;
+
+        } else {
+            throw new \Exception("No user matching id " . $id ."."); }
+
+    }
+    }*/
+
+   $reponse = $bdd->query('SELECT * FROM t_user WHERE usr_id = $id' );
     while ($donnees = $reponse->fetch()){
 
-          echo $donnees['gro_name'];
+          echo $donnees['usr_name'];
+          print_r($donnees);
 
 
     }
 
- $relatedGroups = "SELECT * FROM t_groupe WHERE gro_name =:groupname AND gro_password =:password;";
+   $reponse = $bdd->query('SELECT * FROM t_groupe WHERE gro_id = 1' );
+    while ($donnees = $reponse->fetch()){
+
+          echo $donnees['gro_name'];
+          print_r($donnees);
+
+
+    }
+
+ /*$relatedGroups = "SELECT * FROM t_groupe WHERE gro_name =:groupname AND gro_password =:password;";
         
         $query = $this->getDb()->prepare($relatedGroups);
         $query->execute(array(
@@ -56,14 +91,14 @@
             $_session = $data['groupname'];
             $_session = $data['password'];
             var_dump($_session);
-    }
+    }*/
         
 
 
 
 
 
-  $db = "UPDATE `t_groupe` SET gro_temp_key = $key WHERE gro_name = :groupname";
+  /*$db = "UPDATE `t_groupe` SET gro_temp_key = $key WHERE gro_name = :groupname";
                 $query = $this->getDb()->prepare($relatedGroups);
                 $query->execute(array(
                     'groupname' => $data['groupname']));
@@ -98,10 +133,34 @@
     
                  $db = "UPDATE `t_groupe` SET gro_temp_key = 0 WHERE gro_name = :gro_name";
                         $query = $this->getDb()->prepare($db);
-                        $query = $this->getDb()->execute(array('groupname' => $data['groupname']));
+                        $query = $this->getDb()->execute(array('groupname' => $data['groupname']));*/
+
+
+         /* protected function buildDomainObject($row) {
+
+                            $user= new User();
+
+                            $user->setId($row['usr_id']);
+
+                            $user->setUsername($row['usr_name']);
+
+                            $user->setGroup($row['usr_id_groupe']);
+
+                            $user->setColor($row['usr_couleur']);
+
+                            return $user;
+
+                        }*/
 
 
 
 
-    
+
+
+
+
+
+
+
+
          ?>
